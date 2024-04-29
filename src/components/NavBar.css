@@ -1,0 +1,26 @@
+.imgLogo{
+    height: 80px;
+    width: 80px;
+}
+
+.allNav{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 200px;
+    background-color: #A6B9C1;
+}
+
+.nav{
+    display: flex;
+    gap: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    font-size: 1rem;
+}
