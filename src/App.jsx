@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
 import './App.css'
 
 function App() {
@@ -6,7 +8,8 @@ function App() {
 
   return (
     <>
-      
+      <NavBar />
+      <ItemListContainer greeting="Bienvenidos a Mi Tienda !" />
     </>
   )
 }
