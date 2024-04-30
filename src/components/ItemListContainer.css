@@ -1,4 +1,6 @@
-.titleBienvenida{
-    text-align: center;
-    margin-top: 50px;
+.productosDestacados{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
 }
