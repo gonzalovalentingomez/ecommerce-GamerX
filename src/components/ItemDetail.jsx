@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProduct } from '../asyncMock';
+import RefBasic from './RefBasic';
 import './ItemDetail.css'
 
 export default function ItemDetail() {
@@ -20,6 +21,7 @@ export default function ItemDetail() {
                 <h3>Nombre: {product.title}</h3>
                 <p className='cardDetallesDesc'><strong>Descripción:</strong> {product.description}</p>
                 <p className='cardDetallesCat'>Categoría: {product.category}</p>
+                <RefBasic />
                 <p className='cardDetallesPrecio'><strong>Precio: $</strong> {product.price}</p>
             </div>
         </section>

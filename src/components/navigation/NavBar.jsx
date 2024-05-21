@@ -6,7 +6,7 @@ export default function NavBar() {
     return (
         <header className='allNav'>
             <Link to="/">
-                <img src="src\imgs\logo-blanco.png" alt="logo" className='imgLogo' />
+                <img src="\imgs\logo-blanco.png" alt="logo" className='imgLogo' />
             </Link>
             <nav className='nav'>
                 <Link to='/'>Inicio</Link>

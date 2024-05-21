@@ -9,17 +9,25 @@
 .tituloDetalles{
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     margin-top: 50px;
 }
 
 .cardDetalles{
-    width: 200px;
-    height: 350px;
+    width: 250px;
+    height: 400px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+
+.cardDetalles img {
+    border-radius: 8px;
 }
 
 .cardDetallesDesc{
