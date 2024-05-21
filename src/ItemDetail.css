@@ -1,0 +1,21 @@
+/* ItemDetail.css */
+.itemDetail {
+    text-align: center;
+    padding: 20px;
+}
+
+.itemDetail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.itemDetail h3 {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+.itemDetail p {
+    font-size: 20px;
+    color: #333;
+}

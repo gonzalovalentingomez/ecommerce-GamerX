@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-around;
     gap: 200px;
-    background-color: #A6B9C1;
+    background-color: black;
 }
 
 .nav{
@@ -21,6 +21,6 @@
 .nav a {
     text-decoration: none;
     text-transform: uppercase;
-    color: black;
+    color: white;
     font-size: 1rem;
 }

@@ -1,0 +1,35 @@
+/* ItemDetail.css */
+.contDetalles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tituloDetalles{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.cardDetalles{
+    width: 200px;
+    height: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardDetallesDesc{
+    font-size: 0.8rem;
+}
+
+.cardDetallesCat{
+    display: none;
+}
+
+.cardDetallesPrecio{
+    color: rgb(202, 141, 29);
+}

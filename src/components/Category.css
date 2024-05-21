@@ -1,8 +1,10 @@
-/* ItemListContainer.css */
-.tituloHome{
-    text-align: center;
+/* Category.css */
+.tituloCat{
     font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .productosDestacados {

@@ -1,16 +1,16 @@
-import AddCarrito from './AddCarrito';
-import './CardComponent.css'
-import RefBasic from './RefBasic';
+import { Link } from 'react-router-dom';
+import './CardComponent.css';
 
-export default function CardComponent({children, title }) {
+export default function CardComponent({ title, price, image, idProd }) {
     return (
-    <>
         <article className="card">
-            {children}
+            <img src={image} alt={title} />
             <h3>{title}</h3>
-            <RefBasic />
-            <AddCarrito />
+            <p>Precio: ${price}</p>
+            <button>
+                <Link to={`/product/${idProd}`}>Ver detalles</Link>
+            </button>
         </article>
-    </>
     );
 }
+
