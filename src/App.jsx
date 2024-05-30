@@ -1,13 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/navigation/NavBar';
-import Category from './components/Category';
 import ItemDetail from './components/ItemDetail';
 import './App.css';
-import { useState } from 'react';
 
 function App() {
-  const[count, setCount] = useState();
   
   return (
     <>
@@ -15,7 +12,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/category/:category" element={<Category />} />
+          <Route exact path="/category/:category" element={<ItemListContainer />} />
           <Route exact path="/product/:prodId" element={<ItemDetail />} />
         </Routes>
       </BrowserRouter>

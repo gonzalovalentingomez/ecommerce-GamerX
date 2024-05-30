@@ -1,5 +1,6 @@
 /* ItemListContainer.css */
 .tituloHome{
+    text-transform: uppercase;
     text-align: center;
     font-size: 2rem;
     margin-top: 25px;
