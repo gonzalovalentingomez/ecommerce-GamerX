@@ -11,25 +11,33 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
 const db = firebase.firestore();
 
-export const getItems = async () => {
-    const itemsCollection = await db.collection('items').get();
-    return itemsCollection.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+export const getProducts = async () => {
+    const snapshot = await db.collection('products').get();
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-export const getItem = async (id) => {
-    const itemDoc = await db.collection('items').doc(id).get();
-    if (itemDoc.exists) {
-        return { id: itemDoc.id, ...itemDoc.data() };
+export const getProduct = async (productId) => {
+    const docRef = db.collection('products').doc(productId);
+    const doc = await docRef.get();
+    if (doc.exists) {
+        return { id: doc.id, ...doc.data() };
     } else {
-        throw new Error('Item not found');
+        console.log('No such document!');
+        return null;
     }
 };
 
 export const createOrder = async (order) => {
-    const orderRef = await db.collection('orders').add(order);
-    return orderRef.id;
+    try {
+        const docRef = await db.collection('orders').add(order);
+        return docRef.id;
+    } catch (error) {
+        console.error('Error creating order:', error);
+        throw error;
+    }
 };
 
-export default db;
+export default firebase;

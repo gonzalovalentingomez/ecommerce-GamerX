@@ -1,54 +1,65 @@
+import { useState } from 'react';
 import './Checkout.css';
 import { useCartContext } from '../../context/CartContext';
-import { createOrder } from '../../services/firebase.js';
-import Brief from './Brief';
+import { createOrder } from '../../services/firebase'; // Asegúrate de que esta ruta sea correcta
 
 const Checkout = () => {
-    const { cart, totalPrice } = useCartContext();
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [emailConfirm, setEmailConfirm] = useState('');
-    const [orderId, setOrderId] = useState('');
+    const { cart, clearCart, calculateTotal } = useCartContext();
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        confirmEmail: '',
+    });
+    const [orderPlaced, setOrderPlaced] = useState(false);
 
-    const handleSubmit = async (e) => {
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleOrderSubmit = async (e) => {
         e.preventDefault();
-        if (email !== emailConfirm) {
-            alert("Emails don't match");
+        if (formData.email !== formData.confirmEmail) {
+            alert('Los correos electrónicos no coinciden.');
             return;
         }
         const order = {
-            items: cart,
-            total: totalPrice,
-            name,
-            surname,
-            phone,
-            email,
+            products: cart,
+            totalPrice: calculateTotal(),
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            phone: formData.phone,
+            email: formData.email,
             date: new Date().toISOString(),
-            status: 'generated'
         };
-        const id = await createOrder(order);
-        setOrderId(id);
-    }
+        try {
+            const orderId = await createOrder(order);
+            alert(`Orden realizada con éxito. Número de orden: ${orderId}`);
+            clearCart();
+            setOrderPlaced(true);
+        } catch (error) {
+            console.error('Error al crear la orden:', error);
+        }
+    };
 
     return (
-        <div className="checkout">
-            {orderId ? (
-                <p>Order ID: {orderId}</p>
-            ) : (
-                <form onSubmit={handleSubmit}>
-                    <Brief />
-                    <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-                    <input type="text" placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} required />
-                    <input type="tel" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <input type="email" placeholder="Confirm Email" value={emailConfirm} onChange={(e) => setEmailConfirm(e.target.value)} required />
-                    <button type="submit">Complete Purchase</button>
+        <div className="checkout-container">
+            {!orderPlaced ? (
+                <form onSubmit={handleOrderSubmit}>
+                    <input type="text" name="firstName" placeholder="Nombre" value={formData.firstName} onChange={handleInputChange} required />
+                    <input type="text" name="lastName" placeholder="Apellido" value={formData.lastName} onChange={handleInputChange} required />
+                    <input type="text" name="phone" placeholder="Teléfono" value={formData.phone} onChange={handleInputChange} required />
+                    <input type="email" name="email" placeholder="Correo electrónico" value={formData.email} onChange={handleInputChange} required />
+                    <input type="email" name="confirmEmail" placeholder="Confirmar correo electrónico" value={formData.confirmEmail} onChange={handleInputChange} required />
+                    <button type="submit" disabled={!formData.firstName || !formData.lastName || !formData.phone || !formData.email || !formData.confirmEmail}>Realizar compra</button>
                 </form>
+            ) : (
+                <p>Gracias por tu compra.</p>
             )}
         </div>
     );
-}
+};
 
 export default Checkout;
