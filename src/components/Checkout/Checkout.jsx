@@ -1,6 +1,6 @@
 import './Checkout.css';
 import { useCartContext } from '../../context/CartContext';
-import { createOrder } from '../../services/firebase';  // Asegúrate de que esta ruta sea correcta
+import { createOrder } from '../../services/firebase.js';
 import Brief from './Brief';
 
 const Checkout = () => {
