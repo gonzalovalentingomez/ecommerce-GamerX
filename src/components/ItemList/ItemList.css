@@ -1,0 +1,27 @@
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    width: 200px;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+}
+
+.item h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.item p {
+    color: #888;
+}

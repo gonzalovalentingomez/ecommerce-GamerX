@@ -1,7 +1,50 @@
-import { useParams } from 'react-router-dom';
+import './ItemDetail.css';
+import ItemQuantitySelector from './ItemQuantitySelector';
+import Description from './Description';
+import AddItemButton from './AddItemButton';
+
+const ItemDetail = ({ item }) => {
+    return (
+        <div className="item-detail">
+            <img src={item.image} alt={item.title} />
+            <h2>{item.title}</h2>
+            <p>${item.price}</p>
+            <Description description={item.description} />
+            <ItemQuantitySelector item={item} />
+            <AddItemButton item={item} />
+        </div>
+    );
+}
+
+export default ItemDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProduct } from '../asyncMock';
-import RefBasic from './RefBasic';
+import { getProduct } from '../../asyncMock';
+import RefBasic from '../RefBasic';
 import './ItemDetail.css'
 
 export default function ItemDetail() {
@@ -27,4 +70,4 @@ export default function ItemDetail() {
         </section>
     );
 }
-
+ */

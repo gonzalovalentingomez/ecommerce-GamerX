@@ -1,4 +1,40 @@
-.imgLogo{
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .imgLogo{
     height: 80px;
     width: 80px;
 }
@@ -23,4 +59,4 @@
     text-transform: uppercase;
     color: white;
     font-size: 1rem;
-}
+} */

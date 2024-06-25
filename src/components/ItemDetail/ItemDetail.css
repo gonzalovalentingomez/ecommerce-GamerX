@@ -1,4 +1,39 @@
-/* ItemDetail.css */
+.item-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-detail img {
+    width: 300px;
+    height: auto;
+}
+
+.item-detail h2 {
+    margin: 1rem 0;
+}
+
+.item-detail p {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 .contDetalles{
     display: flex;
     flex-direction: column;
@@ -40,4 +75,4 @@
 
 .cardDetallesPrecio{
     color: rgb(202, 141, 29);
-}
+} */

@@ -1,6 +1,52 @@
 import { useEffect, useState } from 'react';
-import CardComponent from './CardComponent';
-import { getProducts } from '../asyncMock';
+import './ItemListContainer.css';
+import { getItems } from '../../services/firebase';
+import ItemList from '../ItemList/ItemList';
+
+const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        getItems().then(data => setItems(data));
+    }, []);
+
+    return (
+        <div className="item-list-container">
+            <ItemList items={items} />
+        </div>
+    );
+}
+
+export default ItemListContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import { useEffect, useState } from 'react';
+import CardComponent from '../CardComponent';
+import { getProducts } from '../../asyncMock';
 import './ItemListContainer.css';
 
 export default function ItemListContainer() {
@@ -27,3 +73,4 @@ export default function ItemListContainer() {
         </>
     );
 }
+ */
