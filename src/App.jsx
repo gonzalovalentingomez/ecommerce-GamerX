@@ -4,10 +4,9 @@ import NavBar from './components/navigation/NavBar';
 import Category from './components/Category';
 import ItemDetail from './components/ItemDetail';
 import './App.css';
-import { useState } from 'react';
+
 
 function App() {
-  const[count, setCount] = useState();
   
   return (
     <>
