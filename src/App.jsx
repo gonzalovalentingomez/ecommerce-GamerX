@@ -42,10 +42,12 @@ export default App;
 /* import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/navigation/NavBar';
-import Category from './components/Category';
 import ItemDetail from './components/ItemDetail';
 import './App.css';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0db5dca0d084e70d25b8a1f0d0995af0d78eb981
 
 function App() {
   
@@ -55,7 +57,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/category/:category" element={<Category />} />
+          <Route exact path="/category/:category" element={<ItemListContainer />} />
           <Route exact path="/product/:prodId" element={<ItemDetail />} />
         </Routes>
       </BrowserRouter>
